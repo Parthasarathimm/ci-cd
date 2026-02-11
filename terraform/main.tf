@@ -7,7 +7,7 @@ resource "aws_instance" "game_server" {
   instance_type = "t3.small"
   key_name      = "jenkin"
 
-  security_groups = [aws_security_group.partha.name]
+  security_groups = [aws_security_group.partha-sg.name]
 
   user_data = <<-EOF
               #!/bin/bash
@@ -22,8 +22,8 @@ resource "aws_instance" "game_server" {
   }
 }
 
-resource "aws_security_group" "partha" {
-  name = "partha"
+resource "aws_security_group" "partha-sg" {
+  name = "partha-sg"
 
   ingress {
     from_port   = 22
