@@ -1,13 +1,13 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = "eu-north-1b"
 }
 
 resource "aws_instance" "game_server" {
-  ami           = "ami-019715e0d74f695be" 
+  ami           = "ami-073130f74f5ffb161" 
   instance_type = "t3.micro"
-  key_name      = "jenkinskkp"
+  key_name      = "key"
 
-  security_groups = [aws_security_group.game-sg-jenkins.name]
+  security_groups = [aws_security_group.partha.name]
 
   user_data = <<-EOF
               #!/bin/bash
@@ -22,8 +22,8 @@ resource "aws_instance" "game_server" {
   }
 }
 
-resource "aws_security_group" "gamenew" {
-  name = "gamenew"
+resource "aws_security_group" "partha" {
+  name = "partha"
 
   ingress {
     from_port   = 22
